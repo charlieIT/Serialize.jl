@@ -1,0 +1,9 @@
+name = "Serialize"
+uuid = "cff826d6-85b7-4e59-b833-cfb3a9480406"
+authors = ["AndreSobrall <andre.g.sobral@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+Mongoc = "4fe8b98c-fc19-5c23-8ec2-168ff83495f2"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
