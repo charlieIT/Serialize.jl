@@ -4,6 +4,8 @@ authors = ["AndreSobrall <andre.g.sobral@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 Mongoc = "4fe8b98c-fc19-5c23-8ec2-168ff83495f2"
+MongocUtils = "e584fc4d-3f36-46f9-b493-fafa6061fac8"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

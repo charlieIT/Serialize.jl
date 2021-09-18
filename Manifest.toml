@@ -84,6 +84,14 @@ git-tree-sha1 = "36200aae6c6c7118b5af874f3ec29ff4e8c944f7"
 uuid = "4fe8b98c-fc19-5c23-8ec2-168ff83495f2"
 version = "0.6.2"
 
+[[MongocUtils]]
+deps = ["Dates", "InteractiveUtils", "Mongoc"]
+git-tree-sha1 = "f0e3d3b668e95a6ab3e17b9b8f7fabf6614fef26"
+repo-rev = "main"
+repo-url = "https://github.com/AntonioLoureiro/MongocUtils.jl"
+uuid = "e584fc4d-3f36-46f9-b493-fafa6061fac8"
+version = "0.3.1"
+
 [[MozillaCACerts_jll]]
 uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
 
