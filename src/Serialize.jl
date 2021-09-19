@@ -1,7 +1,7 @@
 module Serialize
 
 export @serialize
-export convert_dict_field
+export bson
 
 using JSON
 using Mongoc

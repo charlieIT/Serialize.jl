@@ -3,17 +3,22 @@ import Mongoc.BSON
 
 macro serialize(type_name)
     return quote
+
+        # -------------- Serialize (type -> BSON)
+
         # --- serialize type to BSON 
         # --- ex: Mongoc.BSON(t::Client)
         function Mongoc.BSON(t::$(esc(type_name)))
             return Mongoc.BSON([string(f) => getfield(t,f) for f in fieldnames($(esc(type_name)))]...)
         end
-
+        
         # --- Called when setting a bson value of a key and the return type of getfield is not a primitive type
         # --- ex: Base.setindex!(bson::Mongoc.BSON, value::Client, k::AbstractString)
         function Base.setindex!(bson::Mongoc.BSON, value::$(esc(type_name)), k::AbstractString)
             bson[k] = Mongoc.BSON(value)
         end
+
+        # -------------- Deserialize (BSON -> type)
         
         # --- deserialize type (dict -> type)
         # --- ex: Client(data::Dict)
@@ -33,7 +38,7 @@ macro serialize(type_name)
                 
                 push!(arr, val)
             end
-            
+
             # -- Calls default constructor (converts will take care of deserializing the fields (if needed))
             return $(esc(type_name))(arr...) 
         end
@@ -50,10 +55,18 @@ macro serialize(type_name)
             return $(esc(type_name))(data)
         end
 
+        # -------------- Utilities
+
         # --- Utility to push to Mongoc collection
         # --- Base.push!(collection::Mongoc.AbstractCollection, document::Client)
         function Base.push!(collection::Mongoc.AbstractCollection, document::$(esc(type_name)))
             Base.push!(collection, Mongoc.BSON(document))
+        end
+
+        # --- serialize type to BSON (syntax sugar)
+        # --- ex: bson(t::Client)
+        function $(esc(:bson))(t::$(esc(type_name)))
+            return Mongoc.BSON(t)
         end
     end
 end

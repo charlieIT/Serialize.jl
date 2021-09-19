@@ -15,7 +15,9 @@ struct Client
 end
 
 struct Person
-    name::Dict{String, Client}
+    name    ::Dict{String, Client}
+    height  ::Dict{String, Int}
+    items   ::Dict{String, String}
 end
 
 struct Cat
@@ -25,14 +27,3 @@ struct Cat
     date_of_birth ::DateTime
 end
 
-struct SimpleDict
-    name::Dict{String, String}
-end
-
-struct AUnionType
-    name::Union{Nothing, Int, String}
-end
-
-struct ADictUnionType
-    name::Dict{String, Union{Nothing, Int, String}}
-end
